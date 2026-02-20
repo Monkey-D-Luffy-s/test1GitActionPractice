@@ -15,12 +15,12 @@ jobs:
 
       - name: Clone target repo
         run: |
-          rsync -av --exclude='test1GitActionPractice' ./ test1GitActionPractice/
           git clone https://x-access-token:${{ secrets.TARGET_REPO_TOKEN }}@github.com/Monkey-D-Luffy-s/test1GitActionPractice.git
           
       - name: Copy files
         run: |
-          cp -r * test1GitActionPractice/
+          rsync -av --exclude='test1GitActionPractice' ./ test1GitActionPractice/
+
 
       - name: Commit and Push to second branch
         run: |

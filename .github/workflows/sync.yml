@@ -15,7 +15,7 @@ jobs:
 
       - name: Clone target repo
         run: |
-          git clone https://x-access-token:${{ secrets.TARGET_REPO_TOKEN }}@github.com/Monkey-D-Luffy-s/test1GitActionPracticeDestination.git
+          git clone https://x-access-token:${{ secrets.TARGET_REPO_TOKEN }}@github.com/Monkey-D-Luffy-s/test1GitActionPractice.git
           
       - name: Copy files
         run: |

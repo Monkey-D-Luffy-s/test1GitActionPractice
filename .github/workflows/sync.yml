@@ -19,7 +19,7 @@ jobs:
           
       - name: Copy files
         run: |
-          cp -r * test1GitActionPracticeDestination/
+          cp -r * test1GitActionPractice/
 
       - name: Commit and Push to second branch
         run: |

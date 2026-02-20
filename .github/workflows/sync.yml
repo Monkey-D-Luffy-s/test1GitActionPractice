@@ -1,0 +1,31 @@
+name: Sync to Second Repo
+
+on:
+  push:
+    branches:
+      - main   # <-- source branch
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+
+      - name: Clone target repo
+        run: |
+          git clone https://x-access-token:${{ secrets.TARGET_REPO_TOKEN }}@github.com/Monkey-D-Luffy-s/test1GitActionPracticeDestination.git
+          
+      - name: Copy files
+        run: |
+          cp -r * test1GitActionPracticeDestination/
+
+      - name: Commit and Push to second branch
+        run: |
+          cd test1GitActionPracticeDestination
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Sync from test1GitActionPractice"
+          git push origin main
